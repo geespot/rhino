@@ -1,0 +1,9 @@
+{% load context %}
+
+api = {
+    {% for api_name, api_info in api_table.iteritems %}
+        {{ api_name }}: function({% for param in api_info.params|context %}{{ param }}{% if not forloop.last %}, {% endif %}{% endfor %}){
+            return $.post('{{ root }}{{ api_name }}', { {% for param in api_info.params|context %}{{ param }}: {{ param }}{% if not forloop.last %}, {% endif %}{% endfor %} });
+        }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+}

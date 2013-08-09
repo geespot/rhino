@@ -1,0 +1,40 @@
+{% load context %}
+#import <Foundation/Foundation.h>
+
+enum PromiseState {
+PromiseStatePending = 0,
+PromiseStateFinished = 1,
+};
+
+@interface APIClientPromise : NSObject<NSURLConnectionDataDelegate>{
+    enum PromiseState state;
+    NSMutableData* responseData;
+    id responseObject;
+    NSDictionary* responseHeader;
+    int dataLength;
+    int statusCode;
+
+    NSMutableArray* doneCallbacks;
+    NSMutableArray* failCallbacks;
+    NSMutableArray* alwaysCallbacks;
+    }
+
+    + (id)promise;
+
+    - (id)done:(void(^)(int, id, NSDictionary*))callback;
+    - (id)fail:(void(^)(int, id, NSDictionary*))callback;
+    - (id)always:(void(^)(int, id, NSDictionary*))callback;
+
+@end
+
+@interface APIClient : NSObject<NSURLConnectionDataDelegate>
+
+    + (id)sharedClient;
+
+{% for api_name, api_info in api_table.iteritems %}
+    - (id){{ api_name }}_now:(bool)now {% for param in api_info.params|context %}{{ param }}:(id)_{{ param }} {% endfor %};
+{% endfor %}
+    - (id)call_now:(bool)now apiName:(NSString*)apiName params:(NSDictionary*)paramsDict;
+
+@end
+

@@ -1,0 +1,338 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0510BFAD174160C600C306BD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0510BFAC174160C600C306BD /* UIKit.framework */; };
+		0510BFAF174160C600C306BD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0510BFAE174160C600C306BD /* Foundation.framework */; };
+		0510BFB1174160C600C306BD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0510BFB0174160C600C306BD /* CoreGraphics.framework */; };
+		0510BFB7174160C600C306BD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0510BFB5174160C600C306BD /* InfoPlist.strings */; };
+		0510BFB9174160C600C306BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0510BFB8174160C600C306BD /* main.m */; };
+		0510BFBD174160C600C306BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0510BFBC174160C600C306BD /* AppDelegate.m */; };
+		0510BFBF174160C600C306BD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0510BFBE174160C600C306BD /* Default.png */; };
+		0510BFC1174160C600C306BD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0510BFC0174160C600C306BD /* Default@2x.png */; };
+		0510BFC3174160C600C306BD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0510BFC2174160C600C306BD /* Default-568h@2x.png */; };
+		0510BFC6174160C600C306BD /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0510BFC5174160C600C306BD /* MasterViewController.m */; };
+		0510BFC9174160C600C306BD /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0510BFC8174160C600C306BD /* DetailViewController.m */; };
+		0510BFCC174160C700C306BD /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0510BFCA174160C700C306BD /* MasterViewController.xib */; };
+		0510BFCF174160C700C306BD /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0510BFCD174160C700C306BD /* DetailViewController.xib */; };
+		0510BFD71741619800C306BD /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0510BFD61741619800C306BD /* APIClient.m */; };
+		0510BFDB1741CF9800C306BD /* APIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0510BFD91741CF9800C306BD /* APIViewController.m */; };
+		0510BFDC1741CF9800C306BD /* APIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0510BFDA1741CF9800C306BD /* APIViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0510BFA9174160C600C306BD /* RestfulIOSClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestfulIOSClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0510BFAC174160C600C306BD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0510BFAE174160C600C306BD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0510BFB0174160C600C306BD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0510BFB4174160C600C306BD /* RestfulIOSClient-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RestfulIOSClient-Info.plist"; sourceTree = "<group>"; };
+		0510BFB6174160C600C306BD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0510BFB8174160C600C306BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0510BFBA174160C600C306BD /* RestfulIOSClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RestfulIOSClient-Prefix.pch"; sourceTree = "<group>"; };
+		0510BFBB174160C600C306BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0510BFBC174160C600C306BD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0510BFBE174160C600C306BD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		0510BFC0174160C600C306BD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		0510BFC2174160C600C306BD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		0510BFC4174160C600C306BD /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		0510BFC5174160C600C306BD /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		0510BFC7174160C600C306BD /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		0510BFC8174160C600C306BD /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		0510BFCB174160C700C306BD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController.xib; sourceTree = "<group>"; };
+		0510BFCE174160C700C306BD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController.xib; sourceTree = "<group>"; };
+		0510BFD51741618B00C306BD /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
+		0510BFD61741619800C306BD /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
+		0510BFD81741CF9800C306BD /* APIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIViewController.h; sourceTree = "<group>"; };
+		0510BFD91741CF9800C306BD /* APIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIViewController.m; sourceTree = "<group>"; };
+		0510BFDA1741CF9800C306BD /* APIViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APIViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0510BFA6174160C600C306BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0510BFAD174160C600C306BD /* UIKit.framework in Frameworks */,
+				0510BFAF174160C600C306BD /* Foundation.framework in Frameworks */,
+				0510BFB1174160C600C306BD /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0510BFA0174160C600C306BD = {
+			isa = PBXGroup;
+			children = (
+				0510BFB2174160C600C306BD /* RestfulIOSClient */,
+				0510BFAB174160C600C306BD /* Frameworks */,
+				0510BFAA174160C600C306BD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0510BFAA174160C600C306BD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0510BFA9174160C600C306BD /* RestfulIOSClient.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0510BFAB174160C600C306BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0510BFAC174160C600C306BD /* UIKit.framework */,
+				0510BFAE174160C600C306BD /* Foundation.framework */,
+				0510BFB0174160C600C306BD /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0510BFB2174160C600C306BD /* RestfulIOSClient */ = {
+			isa = PBXGroup;
+			children = (
+				0510BFBB174160C600C306BD /* AppDelegate.h */,
+				0510BFBC174160C600C306BD /* AppDelegate.m */,
+				0510BFC4174160C600C306BD /* MasterViewController.h */,
+				0510BFC5174160C600C306BD /* MasterViewController.m */,
+				0510BFC7174160C600C306BD /* DetailViewController.h */,
+				0510BFC8174160C600C306BD /* DetailViewController.m */,
+				0510BFCA174160C700C306BD /* MasterViewController.xib */,
+				0510BFCD174160C700C306BD /* DetailViewController.xib */,
+				0510BFB3174160C600C306BD /* Supporting Files */,
+				0510BFD51741618B00C306BD /* APIClient.h */,
+				0510BFD61741619800C306BD /* APIClient.m */,
+				0510BFD81741CF9800C306BD /* APIViewController.h */,
+				0510BFD91741CF9800C306BD /* APIViewController.m */,
+				0510BFDA1741CF9800C306BD /* APIViewController.xib */,
+			);
+			path = RestfulIOSClient;
+			sourceTree = "<group>";
+		};
+		0510BFB3174160C600C306BD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0510BFB4174160C600C306BD /* RestfulIOSClient-Info.plist */,
+				0510BFB5174160C600C306BD /* InfoPlist.strings */,
+				0510BFB8174160C600C306BD /* main.m */,
+				0510BFBA174160C600C306BD /* RestfulIOSClient-Prefix.pch */,
+				0510BFBE174160C600C306BD /* Default.png */,
+				0510BFC0174160C600C306BD /* Default@2x.png */,
+				0510BFC2174160C600C306BD /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0510BFA8174160C600C306BD /* RestfulIOSClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0510BFD2174160C700C306BD /* Build configuration list for PBXNativeTarget "RestfulIOSClient" */;
+			buildPhases = (
+				0510BFA5174160C600C306BD /* Sources */,
+				0510BFA6174160C600C306BD /* Frameworks */,
+				0510BFA7174160C600C306BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RestfulIOSClient;
+			productName = RestfulIOSClient;
+			productReference = 0510BFA9174160C600C306BD /* RestfulIOSClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0510BFA1174160C600C306BD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Egibbon;
+			};
+			buildConfigurationList = 0510BFA4174160C600C306BD /* Build configuration list for PBXProject "RestfulIOSClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0510BFA0174160C600C306BD;
+			productRefGroup = 0510BFAA174160C600C306BD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0510BFA8174160C600C306BD /* RestfulIOSClient */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0510BFA7174160C600C306BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0510BFB7174160C600C306BD /* InfoPlist.strings in Resources */,
+				0510BFBF174160C600C306BD /* Default.png in Resources */,
+				0510BFC1174160C600C306BD /* Default@2x.png in Resources */,
+				0510BFC3174160C600C306BD /* Default-568h@2x.png in Resources */,
+				0510BFCC174160C700C306BD /* MasterViewController.xib in Resources */,
+				0510BFCF174160C700C306BD /* DetailViewController.xib in Resources */,
+				0510BFDC1741CF9800C306BD /* APIViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0510BFA5174160C600C306BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0510BFB9174160C600C306BD /* main.m in Sources */,
+				0510BFBD174160C600C306BD /* AppDelegate.m in Sources */,
+				0510BFC6174160C600C306BD /* MasterViewController.m in Sources */,
+				0510BFC9174160C600C306BD /* DetailViewController.m in Sources */,
+				0510BFD71741619800C306BD /* APIClient.m in Sources */,
+				0510BFDB1741CF9800C306BD /* APIViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0510BFB5174160C600C306BD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0510BFB6174160C600C306BD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0510BFCA174160C700C306BD /* MasterViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0510BFCB174160C700C306BD /* en */,
+			);
+			name = MasterViewController.xib;
+			sourceTree = "<group>";
+		};
+		0510BFCD174160C700C306BD /* DetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0510BFCE174160C700C306BD /* en */,
+			);
+			name = DetailViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0510BFD0174160C700C306BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0510BFD1174160C700C306BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0510BFD3174160C700C306BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RestfulIOSClient/RestfulIOSClient-Prefix.pch";
+				INFOPLIST_FILE = "RestfulIOSClient/RestfulIOSClient-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0510BFD4174160C700C306BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RestfulIOSClient/RestfulIOSClient-Prefix.pch";
+				INFOPLIST_FILE = "RestfulIOSClient/RestfulIOSClient-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0510BFA4174160C600C306BD /* Build configuration list for PBXProject "RestfulIOSClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0510BFD0174160C700C306BD /* Debug */,
+				0510BFD1174160C700C306BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0510BFD2174160C700C306BD /* Build configuration list for PBXNativeTarget "RestfulIOSClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0510BFD3174160C700C306BD /* Debug */,
+				0510BFD4174160C700C306BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0510BFA1174160C600C306BD /* Project object */;
+}

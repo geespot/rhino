@@ -1,0 +1,16 @@
+
+{% load context %}
+
+angular
+    .module('restful-api', [])
+    .factory('api', function($http) {
+        return {
+        {% for api_name, api_info in api_table.iteritems %}
+            {% with params=api_info.params|context %}
+            {{ api_name }}: function({% for param in params %}{{ param }}{% if not forloop.last %}, {% endif %}{% endfor %}){
+                return $http.get('{{ root }}{{ api_name }}', {params:{ {% for param in params %}{{ param }}: {{ param }}{% if not forloop.last %}, {% endif %}{% endfor %} } });
+            }{% if not forloop.last %},{% endif %}
+            {% endwith %}
+        {% endfor %}
+        };
+    });

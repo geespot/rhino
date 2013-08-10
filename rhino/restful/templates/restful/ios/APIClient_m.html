@@ -1,0 +1,138 @@
+{% load context %}
+
+#import "APIClient.h"
+
+NSString* API_ROOT = @"http://{{ root }}";
+
+@implementation APIClientPromise
+
+- (id)init   {
+    self = [super init];
+    if (self)   {
+        state = PromiseStatePending;
+        responseData = [[NSMutableData data]retain];
+        doneCallbacks = [[NSMutableArray array]retain];
+        failCallbacks = [[NSMutableArray array]retain];
+        alwaysCallbacks = [[NSMutableArray array]retain];
+    }
+    return self;
+}
+
+- (void)dealloc{
+    [super dealloc];
+}
+
++ (id)promise    {
+    return [[[[APIClientPromise alloc]init]autorelease]retain];
+}
+
+- (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite{
+    state = PromiseStatePending;
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response   {
+    [responseData setLength:0];
+    responseHeader = [response allHeaderFields];
+    dataLength = [response expectedContentLength];
+    statusCode = [response statusCode];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data  {
+    [responseData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection    {
+    state = PromiseStateFinished;
+    responseObject = [[NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil]retain];
+    
+    if (statusCode >= 200 && statusCode < 300)  {
+        for (void(^callback)(int, id, NSDictionary*) in doneCallbacks)   {
+            callback(statusCode, responseObject, responseHeader);
+        }
+    }
+    if (statusCode >= 400)  {
+        for (void(^callback)(int, id, NSDictionary*) in failCallbacks)   {
+            callback(statusCode, responseObject, responseHeader);
+        }
+    }
+    for (void(^callback)(int, id, NSDictionary*) in alwaysCallbacks)   {
+        callback(statusCode, responseObject, responseHeader);
+    }
+}
+
+- (id)always:(void(^)(int, id, NSDictionary*))callback {
+    [alwaysCallbacks addObject:[[callback copy]autorelease]];
+    if (state == PromiseStateFinished){
+        callback(statusCode, responseObject, responseHeader);
+    }
+    return self;
+}
+
+- (id)fail:(void(^)(int, id, NSDictionary*))callback {
+    [failCallbacks addObject:[[callback copy]autorelease]];
+    if (state == PromiseStateFinished){
+        if (statusCode >= 400)  {
+            callback(statusCode, responseObject, responseHeader);
+        }
+    }
+    return self;
+}
+
+- (id)done:(void(^)(int, id, NSDictionary*))callback {
+    [doneCallbacks addObject:[[callback copy]autorelease]];
+    if (state == PromiseStateFinished){
+        if (statusCode >= 200 && statusCode < 300)  {
+            callback(statusCode, responseObject, responseHeader);
+        }
+    }
+    return self;
+}
+
+@end
+
+@implementation APIClient
+
+APIClient* sharedClient;
+
++ (id)sharedClient    {
+    if (!sharedClient)  {
+        sharedClient = [[[[APIClient alloc]init]autorelease]retain];
+    }
+    return sharedClient;
+}
+
+- (id)call_now:(bool)now apiName:(NSString*)apiName params:(NSDictionary*)paramsDict   {
+    NSString* url = [NSString stringWithFormat:@"%@%@", API_ROOT, apiName];
+    
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    
+    NSString* body = @"";
+    for (NSString* key in [paramsDict allKeys]){
+        body = [body stringByAppendingFormat:@"%@=%@&", key, [paramsDict objectForKey:key]];
+    }
+    body = [body stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+
+    if (now)    {
+        NSHTTPURLResponse* response;
+        NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+        NSDictionary* result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        return result;
+    }
+    APIClientPromise* promise = [[APIClientPromise promise]retain];
+    [[NSURLConnection connectionWithRequest:request delegate:promise]start];
+    return promise;
+}
+
+{% for api_name, api_info in api_table.iteritems %}
+- (id){{ api_name }}_now:(bool)now {% for param in api_info.params|context %}{{ param }}:(id)_{{ param }} {% endfor %} {
+    NSArray* keys = [NSArray arrayWithObjects: {% for param in api_info.params|context %}@"{{ param }}", {% endfor %} nil];
+    NSArray* values = [NSArray arrayWithObjects: {% for param in api_info.params|context %}_{{ param }}, {% endfor %} nil];
+    NSDictionary* dict = [NSDictionary dictionaryWithObjects:values forKeys:keys];
+    return [self call_now:now apiName:@"{{ api_name }}" params:dict];
+}
+{% endfor %}
+
+@end
+

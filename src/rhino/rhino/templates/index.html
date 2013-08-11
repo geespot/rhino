@@ -7,6 +7,10 @@
 </head>
 <body>
   <div ng-include="'/static/partials/top_user.html'"></div>
+  <div ng-include="'/static/partials/top_banner.html'"></div>
+  <div ng-include="'/static/partials/bread_crumb.html'"></div>
+  <div ng-include="'/static/partials/notice_board_time.html'"></div>
+
   <div ng-view></div>
   <div ng-include="'/static/partials/foot.html'"></div>
   <!-- In production use:
@@ -18,6 +22,16 @@
   <script src="/static/js/rhino.js"></script>
   <script src="/static/js/controllers/home.js"></script>
   <script src="/static/js/controllers/search.js"></script>
+
+  <script src="/static/js/controllers/topuser.js"></script>
+  <script src="/static/js/controllers/topbanner.js"></script>
+  <script src="/static/js/controllers/breadcrumb.js"></script>
+  <script src="/static/js/controllers/noticeboardtime.js"></script>
+  <script src="/static/js/controllers/filternarrow.js"></script>
+  <script src="/static/js/controllers/filter.js"></script>
+  <script src="/static/js/controllers/mapsummary.js"></script>
+  <script src="/static/js/controllers/searchresult.js"></script>
+
   <script src="/static/js/controllers/user.js"></script>
   <script src="/static/js/services/user.js"></script>
   <script src="/static/js/directives/map.js"></script>

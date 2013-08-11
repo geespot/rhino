@@ -1,5 +1,5 @@
 
 
-function SearchCtrl($routeParams){
+function SearchCtrl($routeParams,$scope){
 
 }

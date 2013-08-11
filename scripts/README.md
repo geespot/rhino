@@ -1,12 +1,11 @@
-Scripts goes in here.
+编译，部署，测试脚本
+=====
+配置环境
+  1. 安装nodejs
+  2. <code>(sudo) npm install -g karma karma-ng-scenario grunt-cli --save-dev</code>
 
-## Run Test
+=====
+单机测试：
 
-> $ sudo npm install 
-> $ karma start  # Open your brower and run the Karma
-
-## References
-
-Accroding to [Karma > Plus > AngularJS](http://karma-runner.github.io/0.10/plus/angularjs.html), You should refer to the blog below:  
-* [Blog: Full-Spectrum Testing with AngularJS and Karma](http://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-karma.html)
-* [Grunt](http://gruntjs.com/) 
+  Windows: <code>scripts/localtest.bat</code>
+  OSX/Linux: <code>scripts/localtest.sh</code>

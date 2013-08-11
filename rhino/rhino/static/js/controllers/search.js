@@ -1,0 +1,5 @@
+
+
+function SearchCtrl($routeParams){
+
+}

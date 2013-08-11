@@ -25,12 +25,12 @@ rhino
 进行开发
 
     1. 同步服务器代码
-    2. git checkout -b featurebranch
+    2. git checkout -b %featurebranch%
     3. 进行开发
     4. git add xxxx
     5. git commit
     6. 重复 3 - 5
-    7. 完成以后，git push (将你的开发推送到你的fork）
+    7. 完成以后，git push origin %featurebranch% (将你的开发推送到你的fork) 你可以多次在随意的时候push
 
 =====
 

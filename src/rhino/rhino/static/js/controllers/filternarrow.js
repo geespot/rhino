@@ -1,4 +1,4 @@
 
 function FilterNarrowCtrl($scope){
-    $scope.text = 'this is filter narrow';
+    $scope.text = '酸洗中厚板普冷';
 }

@@ -37,3 +37,7 @@ nosetests.xml
 .idea
 .DS_Store
 local_settings.py
+
+# NPM
+*.log
+scripts/node_modules/

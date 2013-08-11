@@ -1,0 +1,18 @@
+{
+  "name": "rhino-karma-angularjs-testing",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yibaisoft/rhino"
+  },
+  "homepage": "https://github.com/yibaisoft/rhino",
+  "devDependencies": {
+    "bower": "latest",
+    "karma": "latest",
+    "karma-chrome-launcher": "latest",
+    "karma-safari-launcher": "latest",
+    "karma-firefox-launcher": "latest",
+    "karma-ng-scenario": "latest",
+    "chai": "latest"
+  }
+}

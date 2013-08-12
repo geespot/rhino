@@ -1,5 +1,5 @@
 
-angular.module('rhino', ['rhino.filters', 'rhino.services', 'rhino.directives', 'restful-api']).
+angular.module('rhino', ['rhino.filters', 'rhino.services', 'rhino.directives', 'ui.bootstrap', 'restful-api']).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/home', {templateUrl: '/static/partials/home.html', controller: 'HomeCtrl'})

@@ -2,44 +2,39 @@
 <html id="ng-app" ng-app="rhino">
 <head>
   <meta charset="utf-8">
-  <title></title>
-  <link rel="stylesheet" href="/static/css/rhino.css"/>
+  <title>范达城</title>
+
+  <link rel="stylesheet/less" href="/static/lib/bootstrap/bootstrap.less" />
+  {% for directory in less_files %}
+    {% for file in directory.files %}
+  <link rel="stylesheet/less" href="/static/css/{{directory.dir}}{{file}}"/>
+    {% endfor %}
+  {% endfor %}
+
+  <script src="/static/lib/less/less.js"></script>
+  <script src="/static/lib/angular/angular.js"></script>
+  <script src="/static/lib/angular/ui-bootstrap.js"></script>
+  <script src="/api/angular_client.js"></script>
+
 </head>
 <body>
   <div ng-include="'/static/partials/top_user.html'"></div>
   <div ng-include="'/static/partials/top_banner.html'"></div>
-  <div ng-include="'/static/partials/bread_crumb.html'"></div>
-  <div ng-include="'/static/partials/notice_board_time.html'"></div>
 
   <div ng-view></div>
+
   <div ng-include="'/static/partials/foot.html'"></div>
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-  -->
-  <script src="/static/lib/angular/angular.js"></script>
-  <script src="/api/angular_client.js"></script>
 
-  <script src="/static/js/rhino.js"></script>
-  <script src="/static/js/controllers/home.js"></script>
-  <script src="/static/js/controllers/search.js"></script>
+  {% for directory in js_files %}
+    {% for file in directory.files %}
+  <script src="/static/js{{directory.dir}}{{file}}"></script>
+    {% endfor %}
+  {% endfor %}
 
-  <script src="/static/js/controllers/topuser.js"></script>
-  <script src="/static/js/controllers/topbanner.js"></script>
-  <script src="/static/js/controllers/breadcrumb.js"></script>
-  <script src="/static/js/controllers/noticeboardtime.js"></script>
-  <script src="/static/js/controllers/filternarrow.js"></script>
-  <script src="/static/js/controllers/filter.js"></script>
-  <script src="/static/js/controllers/mapsummary.js"></script>
-  <script src="/static/js/controllers/searchresult.js"></script>
+  <script>
+    less.watch();
+  </script>
 
-  <script src="/static/js/controllers/packdetail.js"></script>
-
-
-
-  <script src="/static/js/controllers/user.js"></script>
-  <script src="/static/js/services/user.js"></script>
-  <script src="/static/js/directives/map.js"></script>
-  <script src="/static/js/filters/interpolate.js"></script>
 </body>
 </html>
 

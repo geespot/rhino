@@ -3,6 +3,8 @@
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+RELEASE = False
+
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
